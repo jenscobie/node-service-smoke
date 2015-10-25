@@ -7,23 +7,19 @@ program.name = 'service-smoke';
 
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .option('--host <host>', 'Specify the host [http://docker]', 'http://docker')
-  .option('--port <port>', 'Specify the port [3000]', 3000)
 
 program
-  .command('run', 'Run smoke tests')
-  .action(function() {
-
-    var exec = require('child_process').exec;
-    var cmd = 'node_modules/mocha/bin/mocha --bail --reporter spec --recursive src/test/';
-
-    exec(cmd, function(err, stdout, stderr) {
-      if (err) {
-        console.log('Child process exited with error code', err.code);
-        return
-      }
-      console.log(stdout);
-    });
+  .command('test [baseUrl]')
+  .description('Run smoke tests against a service')
+  .action(function(baseUrl) {
+    baseUrl = baseUrl || 'http://docker:3000';
+    process.env['SMOKE_TEST_BASE_URL'] = baseUrl;
+    var shell = require("shelljs");
+    var cmd = '(cd node_modules/service-smoke/ && npm test)';
+    if (shell.exec(cmd).code !== 0) {
+      process.exit(1);
+    }
+    process.exit(0);
   });
 
 program.parse(process.argv);

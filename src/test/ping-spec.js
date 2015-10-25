@@ -1,4 +1,4 @@
-var request = require('supertest')('http://docker:3000');
+var request = require('supertest')(process.env.SMOKE_TEST_BASE_URL);
 
 describe('GET /ping', function () {
   it('should return status 200 OK', function (done) {
