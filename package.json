@@ -1,0 +1,25 @@
+{
+  "name": "service-smoke",
+  "version": "1.0.0",
+  "description": "Assert that a service is healthy and adheres to a standard set of contracts",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenscobie/node-service-smoke.git"
+  },
+  "author": "Jen Scobie <jenscobie@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenscobie/node-service-smoke/issues"
+  },
+  "homepage": "https://github.com/jenscobie/node-service-smoke#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs": "0.0.2",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --bail --reporter spec --recursive src/test/"
+  }
+}
