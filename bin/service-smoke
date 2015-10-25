@@ -12,7 +12,7 @@ program
 
 program
   .command('run', 'Run smoke tests')
-  .action(function {
+  .action(function() {
 
     var exec = require('child_process').exec;
     var cmd = 'node_modules/mocha/bin/mocha --bail --reporter spec --recursive src/test/';

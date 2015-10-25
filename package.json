@@ -1,8 +1,11 @@
 {
   "name": "service-smoke",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Assert that a service is healthy and adheres to a standard set of contracts",
-  "main": "index.js",
+  "bin": {
+    "service-smoke": "./bin/service-smoke"
+  },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jenscobie/node-service-smoke.git"
