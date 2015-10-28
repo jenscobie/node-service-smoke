@@ -1,6 +1,6 @@
 {
   "name": "service-smoke",
-  "version": "1.0.26",
+  "version": "1.0.30",
   "description": "Assert that a service is healthy and adheres to a standard set of contracts",
   "bin": {
     "service-smoke": "./bin/service-smoke"
