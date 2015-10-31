@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var program = require('commander');
+var util = require('util');
 
 program.name = 'service-smoke';
 
@@ -15,8 +16,13 @@ program
     baseUrl = baseUrl || 'http://docker:3000';
     process.env['SMOKE_TEST_BASE_URL'] = baseUrl;
 
-    var shell = require("shelljs");
-    var command = 'node_modules/.bin/mocha --colors --bail --reporter spec --recursive src/test/';
+    var shell = require('shelljs');
+    var prefix = shell.exec('npm get prefix', {silent:true}).output.replace(/\n$/, '');
+    var root = util.format("%s/lib/node_modules/service-smoke", prefix);
+    var mocha = util.format("%s/node_modules/.bin/mocha", root);
+    var specs = util.format("%s/src/test", root);
+    var command = util.format("%s --color --bail --reporter spec --recursive %s", mocha, specs);
+
     shell.exec(command, function(code, output) {
       process.exit(code);
     });

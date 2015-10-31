@@ -1,6 +1,6 @@
 {
   "name": "service-smoke",
-  "version": "1.0.40",
+  "version": "1.0.54",
   "description": "Assert that a service is healthy and adheres to a standard set of contracts",
   "bin": {
     "service-smoke": "./bin/service-smoke"
@@ -24,6 +24,6 @@
     "supertest": "^1.1.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --colors --bail --reporter spec --recursive src/test/"
+    "test": "node_modules/.bin/mocha --color --bail --reporter spec --recursive src/test/"
   }
 }
