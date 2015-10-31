@@ -14,12 +14,12 @@ program
   .action(function(baseUrl) {
     baseUrl = baseUrl || 'http://docker:3000';
     process.env['SMOKE_TEST_BASE_URL'] = baseUrl;
+
     var shell = require("shelljs");
-    var cmd = '(cd node_modules/service-smoke/ && npm test)';
-    if (shell.exec(cmd).code !== 0) {
-      process.exit(1);
-    }
-    process.exit(0);
+    var command = 'node_modules/.bin/mocha --colors --bail --reporter spec --recursive src/test/';
+    shell.exec(command, function(code, output) {
+      process.exit(code);
+    });
   });
 
 program.parse(process.argv);
