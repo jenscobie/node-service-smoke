@@ -1,13 +1,10 @@
 #! /usr/bin/env node
 
-var fs = require('fs');
 var program = require('commander');
 var util = require('util');
 
 program.name = 'service-smoke';
-
-program
-  .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
+program.version(require('../package.json').version);
 
 program
   .command('test [baseUrl]')
