@@ -1,4 +1,4 @@
-var request = require('supertest')(process.env.SMOKE_TEST_BASE_URL);
+var request = require('supertest')(process.env.SERVICE_BASE_URI);
 
 describe('GET /ping', function () {
   it('should return status 200 OK', function (done) {

@@ -24,6 +24,6 @@
     "supertest": "^1.1.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --color --bail --reporter spec --recursive src/test/"
+    "test": "mocha --color --bail --reporter spec --recursive test/"
   }
 }
