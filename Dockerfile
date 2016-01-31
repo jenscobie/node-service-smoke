@@ -9,4 +9,4 @@ COPY package.json ${ROOT}/
 COPY test ${ROOT}/test
 RUN npm install
 
-CMD [ "npm", "test" ]
+CMD [ "./run" ]

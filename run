@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Executing smoke tests on: $SERVICE_BASE_URI"
+
+function check {
+  if [ $? -ne 0 ] ; then
+    sleep 1;
+  fi
+}
+
+count=1
+while [ $count -le 5 ]
+do
+  curl -s -o /dev/null $SERVICE_BASE_URI/ping
+  check;
+  (( count++ ))
+done
+
+npm test

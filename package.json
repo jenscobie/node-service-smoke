@@ -16,6 +16,9 @@
     "url": "https://github.com/jenscobie/node-service-smoke/issues"
   },
   "homepage": "https://github.com/jenscobie/node-service-smoke#readme",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "dependencies": {
     "commander": "^2.9.0",
     "fs": "0.0.2",
