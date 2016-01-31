@@ -1,5 +1,7 @@
 #!/bin/bash
 
+: "${SERVICE_BASE_URI?}"
+
 echo "Executing smoke tests on: $SERVICE_BASE_URI"
 
 function check {
