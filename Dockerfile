@@ -3,9 +3,10 @@ FROM node:4.1.2
 ENV ROOT=/opt/smoke
 
 RUN mkdir -p ${ROOT}
-COPY package.json ${ROOT}
-
 WORKDIR ${ROOT}
+
+COPY package.json ${ROOT}
+COPY test ${ROOT}/test
 RUN npm install
 
-CMD [ "npm", "test", "http://0.0.0.0:3000" ]
+CMD [ "npm", "test" ]
